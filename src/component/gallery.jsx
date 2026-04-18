@@ -44,7 +44,7 @@ useEffect(() => {
 
   const fetchImages = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/api/auth/images`, {
+      const res = await fetch(`https://houseofmedia.onrender.com/api/auth/images`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,

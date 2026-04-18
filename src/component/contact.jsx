@@ -21,7 +21,7 @@ function Contact() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const res = await fetch("http://localhost:5000/api/auth/contact", {
+        const res = await fetch("https://houseofmedia.onrender.com/api/auth/contact", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
