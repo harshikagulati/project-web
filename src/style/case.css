@@ -1,0 +1,391 @@
+.bg-img {
+    position: relative;
+    background-image: url('../assets/homebg.jpg');
+    min-height: 100vh;
+    max-height: 450vh;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top left;
+    overflow: visible;
+}
+
+.image-div {
+    display: flex;
+    justify-content: center;
+    padding: 140px 0px 0px 140px;
+}
+
+.left-div {
+    align-items: center;
+    width: 50%;
+    padding-left: 0;
+}
+
+.left-div h1 {
+    margin: 0;
+    font-family: 'limelight';
+    font-size: 120px;
+    font-weight: bold;
+    color: white;
+}
+
+.left-div p,
+.right-div p {
+    margin: 0;
+    font-family: 'Zalando Sans SemiExpanded';
+    font-size: 20px;
+    color: white;
+    padding-bottom: 40px;
+}
+
+#left-body {
+    font-family: 'Zalando Sans SemiExpanded';
+    font-size: 30px;
+    color: white;
+    text-align: left;
+    padding: 0;
+    padding-right: 100px;
+}
+
+.right-div {
+    width: 50%;
+}
+
+.right-div img {
+    width: 90%;
+    height: auto;
+}
+
+.results-div {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0px 40px 140px;
+}
+
+.left-results {
+    align-items: center;
+    width: 50%;
+}
+
+.right-results {
+    width: 50%;
+    padding-left: 130px;
+}
+
+.left-results h2,
+.right-results h2,
+.summary-div h2 {
+    margin: 0;
+    font-family: 'Zalando Sans SemiExpanded';
+    font-size: 70px;
+    font-weight: bold;
+    color: white;
+    padding-bottom: 0px;
+}
+
+.summary-div h2 {
+    color: black;
+}
+
+.right-results p{
+    color: white;
+    padding-bottom: 20px;
+    margin: 0;
+}
+
+
+.summary-div{
+    padding: 100px 0px 40px 140px;
+    background-color: white;
+}
+
+.summary-div p{
+    font-family: 'Zalando Sans SemiExpanded';
+    font-size: 30px;
+    color: black;
+    text-align: left;
+    padding: 0;
+    padding-right: 100px;
+}
+
+.social-content{
+    background-color: black;
+    color: white;
+    padding: 100px 140px;
+}
+
+.social-content h2{
+    margin: 0;
+    font-family: 'Zalando Sans SemiExpanded';
+    font-size: 70px;
+    font-weight: bold;
+    padding-bottom: 0px;
+}
+
+.insta-grid{
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    gap: 40px;
+    padding: 140px;
+}
+
+/* ── 1024px ── */
+@media (max-width: 1024px) {
+ 
+    .image-div {
+        padding: 100px 60px 0 60px;
+        gap: 30px;
+    }
+ 
+    .left-div h1 {
+        font-size: 80px;
+    }
+ 
+    #left-body {
+        font-size: 22px;
+        padding-right: 40px;
+    }
+ 
+    .left-div p,
+    .right-div p {
+        font-size: 17px;
+    }
+ 
+    .right-div img {
+        width: 100%;
+    }
+ 
+    .results-div {
+        padding: 50px 60px 40px 60px;
+        gap: 30px;
+    }
+ 
+    .left-results h2,
+    .right-results h2,
+    .summary-div h2 {
+        font-size: 52px;
+    }
+ 
+    .right-results {
+        padding-left: 60px;
+    }
+ 
+    .summary-div {
+        padding: 70px 60px 40px 60px;
+    }
+ 
+    .summary-div p {
+        font-size: 22px;
+        padding-right: 40px;
+    }
+ 
+    .social-content {
+        padding: 70px 60px;
+    }
+ 
+    .social-content h2 {
+        font-size: 52px;
+    }
+ 
+    .insta-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+        padding: 80px 60px;
+    }
+}
+ 
+/* ── 768px ── */
+@media (max-width: 768px) {
+ 
+    .image-div {
+        flex-direction: column;
+        padding: 80px 30px 0 30px;
+        gap: 24px;
+    }
+ 
+    .left-div {
+        width: 100%;
+        padding-left: 0;
+    }
+ 
+    .left-div h1 {
+        font-size: 56px;
+    }
+ 
+    #left-body {
+        font-size: 18px;
+        padding-right: 0;
+    }
+ 
+    .left-div p,
+    .right-div p {
+        font-size: 15px;
+        padding-bottom: 24px;
+    }
+ 
+    .right-div {
+        width: 100%;
+    }
+ 
+    .right-div img {
+        width: 100%;
+    }
+ 
+    .results-div {
+        flex-direction: column;
+        padding: 40px 30px;
+        gap: 20px;
+    }
+ 
+    .left-results {
+        width: 100%;
+    }
+ 
+    .right-results {
+        width: 100%;
+        padding-left: 0;
+    }
+ 
+    .left-results h2,
+    .right-results h2,
+    .summary-div h2 {
+        font-size: 40px;
+    }
+ 
+    .right-results p {
+        font-size: 15px;
+        padding-bottom: 14px;
+    }
+ 
+    .summary-div {
+        padding: 50px 30px 30px 30px;
+    }
+ 
+    .summary-div p {
+        font-size: 18px;
+        padding-right: 0;
+    }
+ 
+    .social-content {
+        padding: 50px 30px;
+    }
+ 
+    .social-content h2 {
+        font-size: 40px;
+    }
+ 
+    .insta-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
+        padding: 50px 30px;
+    }
+}
+ 
+/* ── 480px ── */
+@media (max-width: 480px) {
+ 
+    .image-div {
+        padding: 70px 20px 0 20px;
+    }
+ 
+    .left-div h1 {
+        font-size: 42px;
+    }
+ 
+    #left-body {
+        font-size: 16px;
+    }
+ 
+    .left-div p,
+    .right-div p {
+        font-size: 14px;
+        padding-bottom: 18px;
+    }
+ 
+    .results-div {
+        padding: 30px 20px;
+    }
+ 
+    .left-results h2,
+    .right-results h2,
+    .summary-div h2 {
+        font-size: 32px;
+    }
+ 
+    .summary-div {
+        padding: 40px 20px 24px 20px;
+    }
+ 
+    .summary-div p {
+        font-size: 15px;
+    }
+ 
+    .social-content {
+        padding: 40px 20px;
+    }
+ 
+    .social-content h2 {
+        font-size: 32px;
+    }
+ 
+    .insta-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 36px 20px;
+    }
+}
+ 
+/* ── 320px ── */
+@media (max-width: 320px) {
+ 
+    .image-div {
+        padding: 60px 12px 0 12px;
+    }
+ 
+    .left-div h1 {
+        font-size: 32px;
+    }
+ 
+    #left-body {
+        font-size: 14px;
+    }
+ 
+    .left-div p,
+    .right-div p {
+        font-size: 13px;
+    }
+ 
+    .left-results h2,
+    .right-results h2,
+    .summary-div h2 {
+        font-size: 26px;
+    }
+ 
+    .results-div {
+        padding: 24px 12px;
+    }
+ 
+    .summary-div {
+        padding: 30px 12px 20px 12px;
+    }
+ 
+    .summary-div p {
+        font-size: 13px;
+    }
+ 
+    .social-content {
+        padding: 30px 12px;
+    }
+ 
+    .social-content h2 {
+        font-size: 26px;
+    }
+ 
+    .insta-grid {
+        padding: 24px 12px;
+        gap: 12px;
+    }
+}
+ 

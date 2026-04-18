@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Zalando+Sans+SemiExpanded:ital,wght@0,200..900;1,200..900&display=swap');
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.navbar {
+    color: white;
+    font-family: 'Zalando Sans SemiExpanded';
+    font-size: 25px;
+    box-sizing: border-box;
+    padding: 0 80px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(0, 0, 0, 0);
+    justify-content: space-between;
+    transition: all 0.25s ease;
+}
+
+.logo,
+.logo a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-sticky {
+    height: 5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: black;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-content: center;
+}
+
+.navbar-sticky .Contact{
+    color: white;
+    background-color: black;
+}
+
+#logo-img {
+    display: block;
+    padding: 0;
+    filter: drop-shadow(5px 5px 15px 5px #c8c1f7);
+    height: 4rem;
+    width: auto;
+}
+
+.navbar-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-items {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Zalando Sans SemiExpanded';
+}
+
+.navbar-links {
+    background-color: transparent;
+    color: white;
+    outline: none;
+    border: none;
+}
+
+.navbar-links:hover, 
+.navbar-links:focus,
+.navbar-links:active {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.Contact {
+    color: black;
+    background-color: white;
+}
+
+.login-btn{
+    background-color: transparent;
+    color: white;
+    outline: none;
+    border: none;
+    margin-right: 20px;
+}
+
+.login-btn:hover{
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+/* ── 1024px ── */
+@media (max-width: 1024px) {
+ 
+    .navbar {
+        padding: 0 40px;
+        font-size: 20px;
+    }
+ 
+    #logo-img {
+        height: 3.2rem;
+    }
+ 
+    .navbar-sticky {
+        height: 4.5rem;
+    }
+}
+ 
+/* ── 768px ── */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    color: white;
+  }
+
+  .navbar-menu {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: black;
+    display: none;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .navbar-menu.active {
+    display: flex;
+  }
+
+  .navbar-items {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .navbar-items div > div {
+    position: relative !important;
+    width: 100%;
+  }
+
+  .navbar-links {
+    width: 100%;
+    text-align: left;
+  }
+
+  .contact-btn {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .Contact {
+    width: 100%;
+  }
+
+  .login-btn {
+    width: 100%;
+  }
+}
+ 
+/* ── 480px ── */
+@media (max-width: 480px) {
+ 
+    .navbar {
+        padding: 0 16px;
+        font-size: 15px;
+        flex-wrap: wrap;
+        height: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+ 
+    .navbar-sticky {
+        height: auto;
+        padding: 10px 16px;
+    }
+ 
+    #logo-img {
+        height: 2.4rem;
+    }
+ 
+    .navbar-menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+ 
+    .navbar-items {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+ 
+    .login-btn {
+        font-size: 14px;
+        margin-right: 6px;
+    }
+ 
+    .Contact {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+}
+ 
+/* ── 320px ── */
+@media (max-width: 320px) {
+ 
+    .navbar {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+ 
+    #logo-img {
+        height: 2rem;
+    }
+ 
+    .login-btn,
+    .Contact {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+}

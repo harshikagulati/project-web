@@ -1,0 +1,1019 @@
+@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zalando+Sans+SemiExpanded:ital,wght@0,200..900;1,200..900&display=swap');
+
+.bg-image{
+    position: relative;
+    background-image: url('../assets/homebg.jpg');
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top left;
+    overflow: hidden;
+}
+
+.bg-blobs{
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.blob{
+    position: absolute;
+    border-radius: 58% 42% 36% 64% / 44% 58% 42% 56%;
+    filter: blur(2px);
+    opacity: 0.42;
+    transform-origin: 50% 50%;
+    animation:
+        floatBlob var(--float-duration, 6s) ease-in-out infinite,
+        morphBlob var(--morph-duration, 10s) ease-in-out infinite alternate;
+}
+    
+.blob-one{
+    top: 12%;
+    left: 6%;
+    width: 220px;
+    height: 220px;
+    background: linear-gradient(45deg,#ff6a00,#ff2d95);
+    --float-duration: 6s;
+    --morph-duration: 9s;
+}
+
+.blob-two{
+    top: 25%;
+    right: 8%;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle at 30% 30%, #78cfff, #1e90ff);
+    --float-duration: 7.5s;
+    --morph-duration: 11s;
+    animation-delay: -2s, -4s;
+}
+
+.blob-three{
+    bottom: 10%;
+    left: 38%;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle at 30% 30%, #9af5c3, #00b37e);
+    --float-duration: 5.5s;
+    --morph-duration: 8.5s;
+    animation-delay: -1s, -3s;
+}
+
+.blob-four{
+    bottom: 18%;
+    right: 22%;
+    width: 240px;
+    height: 240px;
+    background: radial-gradient(circle at 30% 30%, #ffd7f2, #ff6eb4);
+    --float-duration: 8s;
+    --morph-duration: 12s;
+    animation-delay: -3.5s, -5.5s;
+}
+
+@keyframes floatBlob{
+    0%{
+        transform: translateY(0) translateX(0) scale(1);
+    }
+    50%{
+        transform: translateY(-22px) translateX(12px) scale(1.06);
+    }
+    100%{
+        transform: translateY(0) translateX(0) scale(1);
+    }
+}
+
+@keyframes morphBlob{
+    0%{
+        border-radius: 58% 42% 36% 64% / 44% 58% 42% 56%;
+        transform: rotate(0deg) scale(1);
+    }
+    33%{
+        border-radius: 35% 65% 60% 40% / 55% 35% 65% 45%;
+        transform: rotate(4deg) scale(1.04);
+    }
+    66%{
+        border-radius: 68% 32% 42% 58% / 37% 63% 37% 63%;
+        transform: rotate(-5deg) scale(0.98);
+    }
+    100%{
+        border-radius: 46% 54% 30% 70% / 62% 45% 55% 38%;
+        transform: rotate(3deg) scale(1.03);
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .blob{
+        animation: none;
+    }
+}
+
+.web-body{
+    padding-top: 80px;
+    padding-left: 140px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    z-index: 2;
+}
+
+.left-div{
+    position: relative; 
+    padding-top: 140px;
+    padding-left: 60px;
+}
+
+#white-title{
+    margin-left: 8px;
+    color: white;
+    font-family: 'limelight';
+    font-size: 120px;
+    font-weight: bold;
+}
+
+#subtitle{
+    color: white;
+    font-family: 'Zalando Sans SemiExpanded';
+    font-size: 28px;
+}
+
+.join{
+    font-size: 28px;
+    color: white;
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-family: 'Zalando Sans SemiExpanded';
+}
+
+.brands-logo-padding{
+    background-color: black;
+    padding: 2rem 15rem;
+}
+
+.brands-logo{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns:repeat(5, minmax(120px, 1fr));
+    gap: 10px;
+    grid-auto-columns: 30px;
+}
+
+.logo-image-div{
+    display: flex;
+    justify-content: center;
+}
+
+.logo-image-div img{
+    width: 40%;
+    height: auto;
+    display: block;
+}
+
+.about-us-div{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    padding: 100px 140px;
+}
+
+.left-about{
+    width: 50%;
+}
+
+.left-about h1{
+    margin: 0;
+    font-family: 'limelight';
+    font-size: 120px;
+    font-weight: bold;
+    color: black;
+}
+
+.right-about{
+    width: 50%;
+}
+
+.right-about h3{
+    margin: 0;
+    font-family: 'Zalando Sans SemiExpanded';
+    font-size: 35px;
+    font-weight: bold;
+    color: black;
+}
+
+.right-about p{
+    margin: 0;
+    font-family: 'Zalando Sans SemiExpanded';
+    font-size: 20px;
+    color: black;
+    padding: 30px 0px;
+}
+
+.services-div{
+    background-color: black;
+    padding: 100px 0px;
+}
+
+#service-head{
+    margin: 0;
+    font-family: 'limelight';
+    font-size: 70px;
+    font-weight: bold;
+    padding: 0px 140px;
+    color: white;
+}
+
+.services-list{
+    margin: 0px 90px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.service{
+    padding: 50px;
+}
+
+.service h3{
+    margin: 0;
+    font-family: 'Zalando Sans SemiExpanded';
+    font-size: 35px;
+    font-weight: bold;
+    color: white;
+}
+
+.service p{
+    margin: 0;
+    font-family: 'Zalando Sans SemiExpanded';
+    font-size: 20px;
+    color: white;
+    padding: 30px 0px 0px;
+}
+
+
+.portfolio-div{
+    background-image: url('../assets/homebg.jpg');
+    margin: 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#headings{
+    margin: 0;
+    font-family: 'limelight';
+    font-size: 70px;
+    font-weight: bold;
+    padding: 100px 140px;
+    color: white;
+}
+
+.case-study{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 100px;
+}
+
+.left-case{
+    width: 50%;
+    padding: 0% 10%;
+    box-sizing: border-box;
+}
+
+.left-case img{
+    width: 100%;
+    height: auto;
+}
+
+.right-case{
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.right-case h2{
+    margin: 0;
+    font-family: 'Zalando Sans SemiExpanded';
+    font-size: 70px;
+    font-weight: bold;
+    color: white;
+    text-align: left;
+    padding: 0;
+    padding-right: 100px;
+}
+
+.right-case p{
+    font-family: 'Zalando Sans SemiExpanded';
+    font-size: 30px;
+    color: white;
+    text-align: left;
+    padding: 0;
+    padding-right: 100px;
+}
+
+.case-study-alt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 150px;
+    padding-bottom: 100px;
+}
+
+.left-case-alt{
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.left-case-alt h2{
+    margin: 0;
+    font-family: 'Zalando Sans SemiExpanded';
+    font-size: 70px;
+    font-weight: bold;
+    color: white;
+    text-align: left;
+}
+
+
+.left-case-alt p{
+    font-family: 'Zalando Sans SemiExpanded';
+    font-size: 30px;
+    color: white;
+    text-align: left;
+    padding: 0;
+}
+
+.right-case-alt{
+    width: 50%;
+    padding: 0% 10%;
+    box-sizing: border-box;
+}
+
+.right-case-alt img{
+    width: 100%;
+    height: auto;
+}
+
+#cases{
+    font-family: 'Zalando Sans SemiExpanded';
+    font-size: 18px;
+}
+
+.contact-us-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0px 100px 150px;
+    background-color: black;
+    padding: 100px 140px;
+}
+
+.left-contact{
+    margin: 0;
+    font-family: 'limelight';
+    font-size: 70px;
+    font-weight: bold;
+    color: white;
+    width: 30%;
+}
+
+.right-contact{
+    width: 70%;
+    margin: 0;
+    font-family: 'Zalando Sans SemiExpanded';
+    font-size: 20px;
+}
+
+#name, #details, #service-dropdwn, #message{
+    font-size: 25px;
+    font-family: 'Zalando Sans SemiExpanded';
+    margin-bottom: 20px;
+    margin-right: 30px;
+    border: 2px solid white;
+    background-color: transparent;
+    padding: 15px;
+    border-radius: 8px;
+    color: white;
+}
+
+#service-dropdwn{
+    width: 86%;
+}
+
+#service-dropdwn option{
+    background-color: black;
+}
+
+#message{
+    width: 82%;
+}
+
+
+/* ============================================================
+   RESPONSIVE OVERRIDES — Desktop-first (max-width)
+   Add this file AFTER your existing CSS file.
+   Do NOT modify your original CSS — these are additive overrides only.
+   ============================================================ */
+
+/* ============================================================
+   BASE ADDITIONS (apply to all screen sizes, including desktop)
+   ============================================================ */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* ============================================================
+   BREAKPOINT: Small Laptops & Below — max-width: 1024px
+   ============================================================ */
+@media (max-width: 1024px) {
+
+    /* Hero */
+    .web-body {
+        padding-top: 100px;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    .left-div {
+        width: 80%;
+        padding: 50px 30px;
+    }
+
+    #white-title {
+        font-size: 80px;
+    }
+
+    #subtitle {
+        font-size: 22px;
+    }
+
+    .join {
+        font-size: 20px;
+    }
+
+    /* Brands */
+    .brands-logo-padding {
+        padding: 2rem 4rem;
+    }
+
+    .brands-logo {
+        grid-template-columns: repeat(5, minmax(80px, 1fr));
+    }
+
+    /* About */
+    .about-us-div {
+        padding: 70px 60px;
+    }
+
+    .left-about h1 {
+        font-size: 80px;
+    }
+
+    .right-about h3 {
+        font-size: 26px;
+    }
+
+    .right-about p {
+        font-size: 17px;
+    }
+
+    /* Services */
+    #service-head {
+        font-size: 52px;
+        padding: 0 60px;
+    }
+
+    .services-list {
+        margin: 0 30px;
+    }
+
+    .service {
+        padding: 35px 25px;
+    }
+
+    .service h3 {
+        font-size: 26px;
+    }
+
+    .service p {
+        font-size: 16px;
+    }
+
+    /* Portfolio */
+    #headings {
+        font-size: 52px;
+        padding: 70px 60px 30px;
+    }
+
+    .right-case h2,
+    .left-case-alt h2 {
+        font-size: 48px;
+        padding-right: 40px;
+    }
+
+    .right-case p,
+    .left-case-alt p {
+        font-size: 22px;
+        padding-right: 40px;
+    }
+
+    .case-study-alt {
+        padding-left: 60px;
+        padding-bottom: 70px;
+    }
+
+    /* Contact */
+    .contact-us-div {
+        padding: 70px 60px;
+    }
+
+    .left-contact {
+        font-size: 52px;
+    }
+
+    #name,
+    #details,
+    #service-dropdwn,
+    #message {
+        font-size: 18px;
+        padding: 12px;
+    }
+
+    #service-dropdwn {
+        width: 90%;
+    }
+
+    #message {
+        width: 88%;
+    }
+}
+
+
+/* ============================================================
+   BREAKPOINT: Tablets — max-width: 768px
+   ============================================================ */
+@media (max-width: 768px) {
+
+    /* Hero */
+    .web-body {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 100px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 50px;
+        min-height: 100vh;
+    }
+
+    .left-div {
+        width: 100%;
+        padding: 30px 0;
+    }
+
+    #white-title {
+        font-size: 60px;
+        margin: 4px;
+    }
+
+    #subtitle {
+        font-size: 18px;
+    }
+
+    .join {
+        font-size: 18px;
+        padding: 10px 18px;
+    }
+
+    /* Brands */
+    .brands-logo-padding {
+        padding: 2rem 2rem;
+    }
+
+    .brands-logo {
+        grid-template-columns: repeat(3, minmax(80px, 1fr));
+        gap: 16px;
+    }
+
+    .logo-image-div img {
+        width: 55%;
+    }
+
+    /* About */
+    .about-us-div {
+        flex-direction: column;
+        padding: 60px 30px;
+        gap: 20px;
+    }
+
+    .left-about {
+        width: 100%;
+    }
+
+    .left-about h1 {
+        font-size: 60px;
+    }
+
+    .right-about {
+        width: 100%;
+    }
+
+    .right-about h3 {
+        font-size: 24px;
+    }
+
+    .right-about p {
+        font-size: 16px;
+        padding: 20px 0;
+    }
+
+    /* Services */
+    .services-div {
+        padding: 60px 0;
+    }
+
+    #service-head {
+        font-size: 42px;
+        padding: 0 30px;
+    }
+
+    .services-list {
+        flex-direction: column;
+        margin: 0 10px;
+        align-items: flex-start;
+    }
+
+    .service {
+        width: 100%;
+        padding: 30px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .service:last-child {
+        border-bottom: none;
+    }
+
+    .service h3 {
+        font-size: 24px;
+    }
+
+    .service p {
+        font-size: 15px;
+        padding-top: 16px;
+    }
+
+    /* Portfolio */
+    #headings {
+        font-size: 42px;
+        padding: 60px 30px 20px;
+    }
+
+    .case-study {
+        flex-direction: column;
+        padding-bottom: 60px;
+        gap: 24px;
+    }
+
+    .left-case {
+        width: 100%;
+        padding: 0 30px;
+    }
+
+    .right-case {
+        width: 100%;
+        padding: 0 30px;
+        box-sizing: border-box;
+    }
+
+    .right-case h2 {
+        font-size: 38px;
+        padding-right: 0;
+    }
+
+    .right-case p {
+        font-size: 18px;
+        padding-right: 0;
+    }
+
+    .case-study-alt {
+        flex-direction: column-reverse;
+        padding-left: 0;
+        padding-bottom: 60px;
+        gap: 24px;
+    }
+
+    .left-case-alt {
+        width: 100%;
+        padding: 0 30px;
+        box-sizing: border-box;
+    }
+
+    .left-case-alt h2 {
+        font-size: 38px;
+    }
+
+    .left-case-alt p {
+        font-size: 18px;
+    }
+
+    .right-case-alt {
+        width: 100%;
+        padding: 0 30px;
+    }
+
+    /* Contact */
+    .contact-us-div {
+        flex-direction: column;
+        padding: 60px 30px;
+        gap: 30px;
+        align-items: flex-start;
+    }
+
+    .left-contact {
+        width: 100%;
+        font-size: 42px;
+    }
+
+    .right-contact {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    #name,
+    #details,
+    #service-dropdwn,
+    #message {
+        font-size: 16px;
+        padding: 12px 14px;
+        margin-right: 0;
+        width: 100%;
+    }
+
+    #service-dropdwn {
+        width: 100%;
+    }
+
+    #message {
+        width: 100%;
+        min-height: 120px;
+    }
+}
+
+
+/* ============================================================
+   BREAKPOINT: Large Phones — max-width: 480px
+   ============================================================ */
+@media (max-width: 480px) {
+
+    /* Hero */
+    .web-body {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 90px;
+    }
+
+    #white-title {
+        font-size: 48px;
+    }
+
+    #subtitle {
+        font-size: 16px;
+    }
+
+    .join {
+        font-size: 16px;
+        padding: 9px 16px;
+    }
+
+    /* Brands */
+    .brands-logo-padding {
+        padding: 1.5rem 1rem;
+    }
+
+    .brands-logo {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .logo-image-div img {
+        width: 60%;
+    }
+
+    /* About */
+    .about-us-div {
+        padding: 50px 20px;
+    }
+
+    .left-about h1 {
+        font-size: 48px;
+    }
+
+    .right-about h3 {
+        font-size: 20px;
+    }
+
+    .right-about p {
+        font-size: 15px;
+    }
+
+    /* Services */
+    #service-head {
+        font-size: 36px;
+        padding: 0 20px;
+    }
+
+    .services-list {
+        margin: 0 5px;
+    }
+
+    .service {
+        padding: 24px 15px;
+    }
+
+    .service h3 {
+        font-size: 20px;
+    }
+
+    .service p {
+        font-size: 14px;
+        padding-top: 12px;
+    }
+
+    /* Portfolio */
+    #headings {
+        font-size: 36px;
+        padding: 50px 20px 16px;
+    }
+
+    .left-case,
+    .right-case,
+    .left-case-alt,
+    .right-case-alt {
+        padding: 0 20px;
+    }
+
+    .right-case h2,
+    .left-case-alt h2 {
+        font-size: 30px;
+    }
+
+    .right-case p,
+    .left-case-alt p {
+        font-size: 15px;
+    }
+
+    #cases {
+        font-size: 14px;
+    }
+
+    /* Contact */
+    .contact-us-div {
+        padding: 50px 20px;
+    }
+
+    .left-contact {
+        font-size: 36px;
+    }
+
+    .right-contact {
+        font-size: 14px;
+    }
+
+    #name,
+    #details,
+    #service-dropdwn,
+    #message {
+        font-size: 14px;
+        padding: 10px 12px;
+        margin-bottom: 14px;
+    }
+}
+
+
+/* ============================================================
+   BREAKPOINT: Small Phones — max-width: 320px
+   ============================================================ */
+@media (max-width: 320px) {
+
+    /* Hero */
+    #white-title {
+        font-size: 38px;
+    }
+
+    #subtitle {
+        font-size: 14px;
+    }
+
+    .join {
+        font-size: 14px;
+        padding: 8px 14px;
+    }
+
+    /* Brands */
+    .brands-logo {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    /* About */
+    .left-about h1 {
+        font-size: 38px;
+    }
+
+    .right-about h3 {
+        font-size: 18px;
+    }
+
+    .right-about p {
+        font-size: 13px;
+    }
+
+    /* Services */
+    #service-head {
+        font-size: 30px;
+    }
+
+    .service h3 {
+        font-size: 18px;
+    }
+
+    .service p {
+        font-size: 13px;
+    }
+
+    /* Portfolio */
+    #headings {
+        font-size: 30px;
+    }
+
+    .right-case h2,
+    .left-case-alt h2 {
+        font-size: 26px;
+    }
+
+    .right-case p,
+    .left-case-alt p {
+        font-size: 13px;
+    }
+
+    /* Contact */
+    .left-contact {
+        font-size: 30px;
+    }
+
+    #name,
+    #details,
+    #service-dropdwn,
+    #message {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+}
+
+
+/* ============================================================
+   BREAKPOINT: Large Desktops — max-width: 1440px (min-width guard)
+   Only fires above 1440px to keep the original design intact.
+   ============================================================ */
+@media (min-width: 1441px) {
+
+    .about-us-div {
+        padding: 100px 160px;
+    }
+
+    .brands-logo-padding {
+        padding: 2rem 18rem;
+    }
+
+    #service-head {
+        padding: 0 160px;
+    }
+
+    .services-list {
+        margin: 0 110px;
+    }
+
+    #headings {
+        padding: 100px 160px;
+    }
+
+    .contact-us-div {
+        padding: 100px 160px;
+    }
+}
