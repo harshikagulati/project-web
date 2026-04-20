@@ -16,10 +16,6 @@ const __dirname = path.dirname(__filename);
 
 const baseUrl = process.env.BASE_URL || "https://houseofmedia.onrender.com";
 
-const imageUrls = files.map(
-  (file) => `${baseUrl}/uploads/${userId}/${file}`
-);
-
 router.post("/login", async (req, res) => {
   try {
     const { id, password } = req.body; // ✅ FIX
