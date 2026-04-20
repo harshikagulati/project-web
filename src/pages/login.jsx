@@ -10,7 +10,7 @@ function Login() {
     const handleLogin = async (e) => {
         e.preventDefault();
 
-        const res = await fetch("https://houseofmedia.onrender.com/api/auth/login", {
+        const res = await fetch("https://project-web-w4h2.onrender.com/api/auth/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
