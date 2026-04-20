@@ -14,6 +14,12 @@ const router = express.Router();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const baseUrl = process.env.BASE_URL || "https://houseofmedia.onrender.com";
+
+const imageUrls = files.map(
+  (file) => `${baseUrl}/uploads/${userId}/${file}`
+);
+
 router.post("/login", async (req, res) => {
     try {
         const { id, password } = req.body; // ✅ FIX
@@ -70,9 +76,9 @@ router.get("/images", verifyToken, async (req, res) => {
 
         console.log("Files:", files);
 
-        const imageUrls = files.map(
-            (file) => `http://localhost:5000/uploads/${userId}/${file}`
-        );
+       const imageUrls = files.map(
+        (file) => `${baseUrl}/uploads/${userId}/${file}`
+      );
 
         res.json({ images: imageUrls });
     } catch (error) {
@@ -153,7 +159,7 @@ router.post("/forgot-password", async (req, res) => {
 
     await user.save();
 
-    const resetLink = `http://localhost:5173/reset-password/${token}`;
+    const resetLink = `https://houseofmedia.onrender.com/reset-password/${token}`;
 
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
