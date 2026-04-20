@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-dotenv.config({ path: "./.env" });
+dotenv.config();
 import mongoose from "mongoose";
 import express from "express";
 import cors from "cors"
@@ -10,6 +10,8 @@ import { fileURLToPath } from "url";
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const MONGO_URI =
+  process.env.MONGO_URI || "mongodb://127.0.0.1:27017/Insights";
 
 app.use(express.json());
 
@@ -19,9 +21,9 @@ app.use(cors({
     credentials: true
 }));
 
-mongoose.connect("mongodb://localhost:27017/Insights")
-.then(() => console.log("MongoDB Connected"))
-.catch((err) => console.log(err));
+mongoose.connect(MONGO_URI)
+  .then(() => console.log("MongoDB Connected"))
+  .catch((err) => console.log("MongoDB Error:", err));
 
 app.use("/uploads", express.static("uploads"));
 

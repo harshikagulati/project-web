@@ -21,94 +21,94 @@ const imageUrls = files.map(
 );
 
 router.post("/login", async (req, res) => {
-    try {
-        const { id, password } = req.body; // ✅ FIX
+  try {
+    const { id, password } = req.body; // ✅ FIX
 
-        const user = await User.findOne({ id });
+    const user = await User.findOne({ id });
 
-        if (!user) {
-            return res.status(401).json({ error: "User not found" });
-        }
-
-        const isMatch = await bcrypt.compare(password, user.password);
-
-        if (!isMatch) {
-            return res.status(401).json({ error: "Invalid credentials" });
-        }
-
-        const token = jwt.sign(
-            { userId: user.id },
-            process.env.JWT_SECRET,
-            { expiresIn: "1h" }
-        );
-
-        res.json({
-            message: "Login successful",
-            userId: user.id,
-            token: token
-        });
-
-    } catch (error) {
-        console.error("LOGIN ERROR:", error); // 🔥 VERY IMPORTANT
-        res.status(500).json({ error: "Server error" });
+    if (!user) {
+      return res.status(401).json({ error: "User not found" });
     }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if (!isMatch) {
+      return res.status(401).json({ error: "Invalid credentials" });
+    }
+
+    const token = jwt.sign(
+      { userId: user.id },
+      process.env.JWT_SECRET,
+      { expiresIn: "1h" }
+    );
+
+    res.json({
+      message: "Login successful",
+      userId: user.id,
+      token: token
+    });
+
+  } catch (error) {
+    console.error("LOGIN ERROR:", error); // 🔥 VERY IMPORTANT
+    res.status(500).json({ error: "Server error" });
+  }
 });
 
 router.get("/images", verifyToken, async (req, res) => {
-    try {
-        const userId = req.user.userId
+  try {
+    const userId = req.user.userId
 
-        const userFolder = path.join(__dirname, "..", "uploads", userId);
+    const userFolder = path.join(__dirname, "..", "uploads", userId);
 
-        console.log("User folder:", userFolder);
+    console.log("User folder:", userFolder);
 
-        if (!fs.existsSync(userFolder)) {
-            return res.status(404).json({ error: "No folder found for this user" });
-        }
-
-        const files = fs
-            .readdirSync(userFolder)
-            .filter((file) => {
-                const filePath = path.join(userFolder, file);
-                console.log("userFolder:", userFolder);
-                return fs.statSync(filePath).isFile();
-            });
-
-        console.log("Files:", files);
-
-       const imageUrls = files.map(
-        (file) => `${baseUrl}/uploads/${userId}/${file}`
-      );
-
-        res.json({ images: imageUrls });
-    } catch (error) {
-        res.status(500).json({ error: "Failed to load images" });
+    if (!fs.existsSync(userFolder)) {
+      return res.status(404).json({ error: "No folder found for this user" });
     }
+
+    const files = fs
+      .readdirSync(userFolder)
+      .filter((file) => {
+        const filePath = path.join(userFolder, file);
+        console.log("userFolder:", userFolder);
+        return fs.statSync(filePath).isFile();
+      });
+
+    console.log("Files:", files);
+
+    const imageUrls = files.map(
+      (file) => `${baseUrl}/uploads/${userId}/${file}`
+    );
+
+    res.json({ images: imageUrls });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to load images" });
+  }
 });
 
 
 router.post("/contact", async (req, res) => {
-    try {
-        const { fname, lname, email, phno, service, message } = req.body;
+  try {
+    const { fname, lname, email, phno, service, message } = req.body;
 
-        if (!fname || !email) {
-            return res.status(400).json({ message: "Required fields missing" });
-        }
+    if (!fname || !email) {
+      return res.status(400).json({ message: "Required fields missing" });
+    }
 
-        console.log("Incoming data:", req.body);
+    console.log("Incoming data:", req.body);
 
-        const newContact = new contact({ fname, lname, email, phno, service, message });
-        await newContact.save();
+    const newContact = new contact({ fname, lname, email, phno, service, message });
+    await newContact.save();
 
-        console.log("EMAIL_USER:", process.env.EMAIL_USER);
-        console.log("EMAIL_PASS:", process.env.EMAIL_PASS);
+    console.log("EMAIL_USER:", process.env.EMAIL_USER);
+    console.log("EMAIL_PASS:", process.env.EMAIL_PASS);
 
-        const info1 = await transporter.sendMail({
-            from: `"House of Media" <${process.env.EMAIL_USER}>`,
-            to: process.env.EMAIL_USER,
-            replyTo: email,
-            subject: "New Contact Form Enquiry",
-            text: `
+    const info1 = await transporter.sendMail({
+      from: `"House of Media" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_USER,
+      replyTo: email,
+      subject: "New Contact Form Enquiry",
+      text: `
     You received a new enquiry:
 
     First Name: ${fname}
@@ -118,26 +118,26 @@ router.post("/contact", async (req, res) => {
     Service: ${service}
     Message: ${message}
   `,
-        });
+    });
 
-        const info2 = await transporter.sendMail({
-            from: `"House of Media" <${process.env.EMAIL_USER}>`,
-            to: email,
-            subject: "We received your enquiry",
-            text: `Hi ${fname}, we’ll get back to you shortly!`,
-        });
+    const info2 = await transporter.sendMail({
+      from: `"House of Media" <${process.env.EMAIL_USER}>`,
+      to: email,
+      subject: "We received your enquiry",
+      text: `Hi ${fname}, we’ll get back to you shortly!`,
+    });
 
-        console.log("Mail sent:", info1.response);
-        console.log("Mail sent:", info2.response);
+    console.log("Mail sent:", info1.response);
+    console.log("Mail sent:", info2.response);
 
-        res.status(200).json({ message: "Enquiry sent successfully" });
+    res.status(200).json({ message: "Enquiry sent successfully" });
 
-    } catch (error) {
-        console.error("FULL ERROR:", error);
-        console.error("ERROR MESSAGE:", error.message);
-        res.status(500).json({ message: "Error sending enquiry" });
+  } catch (error) {
+    console.error("FULL ERROR:", error);
+    console.error("ERROR MESSAGE:", error.message);
+    res.status(500).json({ message: "Error sending enquiry" });
 
-    }
+  }
 });
 
 import crypto from "crypto";
@@ -163,7 +163,7 @@ router.post("/forgot-password", async (req, res) => {
 
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
-      to: user.email, 
+      to: user.email,
       subject: "Password Reset",
       text: `Click here to reset your password: ${resetLink}`,
     });
